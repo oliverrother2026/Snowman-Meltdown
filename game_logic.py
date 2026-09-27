@@ -2,7 +2,6 @@ import random
 
 from ascii_art import STAGES
 
-
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
 
 
@@ -28,6 +27,7 @@ def display_game_state(mistakes, secret_word, guessed_letters):
     print("Wrong letters:", ", ".join(wrong_letters) or "none")
     print(f"Mistakes:      {mistakes}/{len(STAGES) - 1}")
     print("=" * 30)
+
 
 def play_game():
     """Run one game of Snowman Meltdown."""
