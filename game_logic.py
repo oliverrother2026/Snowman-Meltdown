@@ -12,18 +12,22 @@ def get_random_word():
 
 
 def display_game_state(mistakes, secret_word, guessed_letters):
-    """Show the snowman and the letters guessed so far."""
+    """Show the current snowman and guessing progress."""
+    print("\n" + "=" * 30)
     print(STAGES[mistakes])
 
-    display_word = ""
-    for letter in secret_word:
-        if letter in guessed_letters:
-            display_word += letter + " "
-        else:
-            display_word += "_ "
+    display_word = " ".join(
+        letter if letter in guessed_letters else "_"
+        for letter in secret_word
+    )
+    wrong_letters = [
+        letter for letter in guessed_letters if letter not in secret_word
+    ]
 
-    print("Word:", display_word)
-
+    print("Word:         ", display_word)
+    print("Wrong letters:", ", ".join(wrong_letters) or "none")
+    print(f"Mistakes:      {mistakes}/{len(STAGES) - 1}")
+    print("=" * 30)
 
 def play_game():
     """Run one game of Snowman Meltdown."""
