@@ -1,0 +1,1 @@
+"""Snowman Meltdown: Ein Spiel zum Erraten von Wörtern."""
